@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+	table{
+		margin:0 auto;
+	}
+	img,td{
+		width:120px;
+		height:120px;
+	}
+	div{
+		width:500px;
+		text-align:center;
+		font-size:32px;
+		font-weight:700;
+		margin:0 auto;
+	}
+  </style>
+  <script>
+	window.onload=function(){
+		var durtion = 10;
+		var timeID;
+		var score = 0;
+		var imgs = document.getElementsByTagName('img');
+		var div = document.getElementsByTagName('div')[0];
+		timerID = setInterval(function(){
+			durtion --;
+			if (durtion ==0){
+				//游戏结束
+				clearInterval(timerID);
+				//显示所有图片
+				for (var i =0; i < imgs.length;i++){
+					imgs[i].style.display='block';
+					imgs[i].onclick = null;
+					div.innerHTML = '游戏结束，最终得分为'+score+'分'; 
+				}
+				return
+			}
+			for (var i = 0;i < imgs.length;i++){
+				//添加点击事件
+				imgs[i].onclick = function(){
+					score ++;
+					div.innerHTML = '当前得分为'+score+'分'; 
+				}
+				imgs[i].style.displa y='none';
+			}
+			//随机显示
+			var index = Math.floor(Math.random()*imgs.length);
+			imgs[index].style.display='block';
+		},1000)
+	}
+  </script>
+ </head>
+ <body>
+	<table>
+	<tr>
+		<td>
+			<img src="mouse.jpg">
+		</td>
+				<td>
+			<img src="mouse.jpg">
+		</td>
+				<td>
+			<img src="mouse.jpg">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="mouse.jpg">
+		</td>
+		<td>
+			<img src="mouse.jpg">
+		</td>
+		<td>
+			<img src="mouse.jpg">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="mouse.jpg">
+		</td>
+		<td>
+			<img src="mouse.jpg">
+		</td>
+		<td>
+			<img src="mouse.jpg">
+		</td>
+	</tr>
+	</table>
+	<div>阿坤与小黑的故事</div>
+ </body>
+</html>
